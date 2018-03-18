@@ -3,6 +3,9 @@ package com.baidu.interrupt;
 import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Administrator on 2018/3/18.
@@ -12,6 +15,7 @@ public class Cancel {
     private static final WeakHashMap<Integer, Thread> threadMap = new WeakHashMap<>();
 
     public static void main(String[] args) throws InterruptedException {
+
         for (int i = 0; i < 5; i++) {
             final int finalI = i;
             Thread thread = new Thread(new Runnable() {
