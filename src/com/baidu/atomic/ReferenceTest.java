@@ -10,6 +10,7 @@ public class ReferenceTest {
     public static void main(String[] args) throws InterruptedException {
         // 强引用
         Person person = new Person("Final",100);
+        ReferenceQueue<Person> referenceQueue = new ReferenceQueue<>();;
 
         // 软引用
         Reference<Person> softReference = new SoftReference(new Person("Soft",90));
@@ -21,8 +22,7 @@ public class ReferenceTest {
 
         Thread.sleep(1000);
 
-        ReferenceQueue<Person> referenceQueue = new ReferenceQueue<>();;
-
+        // 虚引用
         Reference<Person> phantomReference = new PhantomReference<>(new Person("Phantom",70),referenceQueue);
         System.out.println(phantomReference.get()+"==");
         System.gc();

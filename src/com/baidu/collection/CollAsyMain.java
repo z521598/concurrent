@@ -1,9 +1,6 @@
 package com.baidu.collection;
 
-import java.util.BitSet;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -13,5 +10,10 @@ public class CollAsyMain {
     public static void main(String[] args) {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         HashMap hashMap = new HashMap();
+
+        // 装饰器
+        Map map = Collections.synchronizedMap(hashMap);
+        Vector vector;
+        Collections.synchronizedList(new ArrayList<>());
     }
 }
